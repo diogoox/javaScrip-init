@@ -31,3 +31,21 @@ console.log(numeroParImpar(10)) // 👉 ✅ Es parr
 
 
 // - Función que suma dos números y devuelve el resultado
+
+function sumaDeNumeros(a, b) {
+    let suma = a + b
+    return `la suma de ${a} + ${b} es: ${suma}`
+}
+console.log(sumaDeNumeros(10, 20))
+
+                //otra forma
+                function sumaDeNumeros(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('❌ Ambos valores deben ser numéricos')
+  }
+  return `La suma de ${a} + ${b} es: ${a + b}`
+}
+
+// - Función que verifica si un texto está vacío
+ 
+
