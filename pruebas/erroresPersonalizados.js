@@ -109,4 +109,11 @@ try {
 }
 
 
+// Crear un error si el nombre de usuario tiene menos de 4 caracteres.
+
+// Lanzar error si el texto NO termina en .jpg, .png o .gif.
+
+// Lanzar error si la contraseña tiene menos de 8 caracteres o no contiene un número.
+
+
 
