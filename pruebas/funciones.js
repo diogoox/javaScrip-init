@@ -48,4 +48,4 @@ console.log(sumaDeNumeros(10, 20))
 
 // - Función que verifica si un texto está vacío
  
-
+function verificarTexto(texto) {}
