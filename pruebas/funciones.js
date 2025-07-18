@@ -48,5 +48,19 @@ console.log(sumaDeNumeros(10, 20))
 
 // - Función que verifica si un texto está vacío
  
-function verificarTexto(texto) {}
-aaa
+function verificarTexto(texto) {
+    if (texto.length === 0 || typeof texto !== 'string') {
+        console.log('este texto esta vacio')
+    } else {
+        console.log(`${texto}`)
+    }
+}
+
+verificarTexto('')
+verificarTexto('hola')
+
+
+// - Función que compara dos números y devuelve el mayor
+
+
+
