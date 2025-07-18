@@ -62,5 +62,16 @@ verificarTexto('hola')
 
 // - Función que compara dos números y devuelve el mayor
 
+function compararNumeros(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        console.log('porfavor ingresa un numero')
+    } else if (a > b) {
+        console.log(`${a}`)
+    } else  if (a < b) {
+        console.log(`${b}`)
+    } else {
+        console.log(`son iguales`)
+    }
+}
 
-
+compararNumeros(10, 6)
