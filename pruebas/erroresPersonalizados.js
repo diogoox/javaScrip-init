@@ -147,9 +147,117 @@ try {
 
 // Lanzar error si el texto NO termina en .jpg, .png o .gif.
 
+class ErrorTexto extends Error {
+
+    constructor(textoo) {
+        super(`el texto no es valido`)
+        this.name = 'ErrorTexto'
+        this.textoo = textoo
+    }
+
+    sugerenciaa() {
+        console.log('el texto debe terminar en: .jpg, .png o .gif ')
+    }
+}
+
+function analizarTexto(textoo) {
+    if (
+        !textoo.endsWith('.jpg') &&
+        !textoo.endsWith('.png') &&
+        !textoo.endsWith('.gif')
+    ) {
+        throw new ErrorTexto(textoo)
+    }
+    console.log('este texto es valido')
+}
 
 
-// Lanzar error si la contraseña tiene menos de 8 caracteres o no contiene un número.
+try {
+    analizarTexto('hola.g')
+} catch(error) {
+    if (error instanceof ErrorTexto) {
+        console.log(error.message)
+        error.sugerenciaa()
+    }
+}
 
+
+
+// Solo se permiten archivos .mp3, .wav, o .ogg.
+
+class ArchivoNoPermitido extends Error {
+
+    constructor(archivo) {
+        super('archivo no valido') 
+        this.name = 'ArchivoNoPermitido'
+        this.archivo = archivo
+    }
+
+    sugerir() {
+        console.log('el archivo debe terminar en: .mp3, .wav, o .ogg')
+    }
+}
+
+function verificarArchivo(archivo) {
+    if (
+        !archivo.endsWith('.mp3') &&
+        !archivo.endsWith('.wav') &&
+        !archivo.endsWith('.ogg')
+    ) {
+        throw new ArchivoNoPermitido(archivo)
+    }
+
+    console.log('archivo insertado!')
+}
+
+try {
+    verificarArchivo('a.mp3')
+} catch(error) {
+    if (error instanceof ArchivoNoPermitido) {
+        console.log(error.message)
+        error.sugerir()
+    }
+}
+
+
+
+
+
+
+//Crear una función que verifique si un archivo termina en .md, .txt, o .csv.
+
+class ArchivoNoCombatible extends Error {
+
+    constructor(archivo1) {
+        super('No es posible insertar el archivo :(')
+        this.name = 'ArchivoNoCombatible'
+        this.archivo1 = archivo1
+    }
+
+    sug() {
+        console.log('EL ARCHIVO DEBE TERMINAR EN: .md, .txt, o .csv')
+    }
+}
+
+function verificarArchivo1(archivo1) {
+    if (
+        !archivo1.endsWith('.md')&&
+        !archivo1.endsWith('.txt')&&
+        !archivo1.endsWith('.csv')
+    ) {
+        throw new ArchivoNoCombatible(archivo1)
+    }
+
+    console.log('el archivo fue insertado con exito!')
+}
+
+try {
+    verificarArchivo1('aa.')
+} catch(error) {
+    if (error instanceof ArchivoNoCombatible) {
+        console.log(error.message)
+        error.sug()
+    }
+}
 
 
