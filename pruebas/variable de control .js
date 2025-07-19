@@ -49,12 +49,40 @@ for (letra of textoo) {
 
 // - Calcular la suma total de los elementos de un array
 
-const numeross = [3, 5, 7, 2, 4]
+let array2 = [10, 20, 30]
+
 let suma = 0
 
-for (let i = 0; i < numeross.length; i++) {
-  suma += numeross[i]
+for (let i = 0; i < array2.length; i++) {
+    suma += array2[i]
 }
 
-console.log(`La suma total es: ${suma}`)
+console.log(`la suma total de los numeros de este array es: ${suma}`)
 
+
+// sumar solo los numeros pares
+
+let array3 = [1, 2, 3, 4, 5, 6]
+let sum = 0
+
+for (let i = 0; i < array3.length; i++) {
+    if (array3[i] % 2 == 0) {
+        sum += array3[i]
+    }
+}
+
+console.log(`suma de los numeros pares de este array: ${sum}`)
+
+     // otra forma de hacerlo
+    let array4 = [1,2,3,4,5,6,7,8,9,10]
+    let sum2 = 0
+
+    for ( numbers of array4) {
+        if (numbers % 2 == 0) {
+            sum2 += numbers
+        }
+    }
+
+    console.log(`La suma total de los numeros pares de este array es: ${sum2}`)
+    
+    
