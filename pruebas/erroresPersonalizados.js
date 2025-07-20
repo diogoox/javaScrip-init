@@ -221,9 +221,6 @@ try {
 
 
 
-
-
-
 //Crear una función que verifique si un archivo termina en .md, .txt, o .csv.
 
 class ArchivoNoCombatible extends Error {
