@@ -86,3 +86,5 @@ console.log(`suma de los numeros pares de este array: ${sum}`)
     console.log(`La suma total de los numeros pares de este array es: ${sum2}`)
     
     
+
+    
