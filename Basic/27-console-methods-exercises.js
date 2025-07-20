@@ -8,11 +8,29 @@ function DetectarEdad(age) {
     }
 }
 
-DetectarEdad(17)
+//DetectarEdad(17)
 
 // 2. Crea una función que utilice warn correctamente
 
+function verificarEdad(age) {
+    if ( age < 18) {
+        console.warn('para ingresar a esta pagina debes ser mayor de edad!')
+    } else {
+        console.log('Tienes acceso a esta pagina')
+    }
+}
+
+verificarEdad(18)
+
 // 3. Crea una función que utilice info correctamente
+
+function crearAlumno(nombre, edad) {
+    console.info(`creando nuevo alumno... \tNombre: ${nombre}  \tEdad: ${edad} `)
+    return { nombre, edad }
+}
+
+crearAlumno('eucebio', '12')
+
 
 // 4. Utiliza table
 
