@@ -27,3 +27,17 @@ verificarNumero(10)
 
 // 10. Importa una función, una constante y una clase desde un directorio diferente al anterior
 
+import {sumarNumerosPares, UserInfo, Personal} from "../ejercicio9y10/functionClassConst.js"
+
+//
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+sumarNumerosPares(numeros)
+
+//
+UserInfo.jobInfo()
+
+//
+
+const PersonalNuevo = new Personal('eucebio', 19)
+console.log(PersonalNuevo)
+PersonalNuevo.info()
