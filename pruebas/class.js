@@ -126,3 +126,161 @@ marcos.info()
 const luis = new AlumnoBueno('Luis', 6 , '10/10')
 luis.info()
 
+
+
+//gettersAndSetters
+
+// Controlar inventario de productos
+
+class NuevoArticulo {
+
+    constructor(articulo, cantidad) {
+        this.articulo = articulo
+        this._cantidad = cantidad
+    }
+
+    get cantidad() {
+        return this._cantidad
+    }
+
+    set cantidad(valor) {
+        if ( typeof valor !== 'number' || valor < 0 ) {
+            console.log('Valor invalido')
+        } else {
+            this._cantidad = valor 
+        }
+    }
+}
+
+const arroz = new NuevoArticulo('arroz', 10)
+
+arroz.cantidad = 20
+console.log(arroz.cantidad)
+
+// validar edad minima
+
+class VerificarEdad {
+
+    constructor(nombre) {
+        this.nombre = nombre
+        this._age = null
+    }
+
+    get age() {
+        return this._age
+    }
+
+    set age(valor) {
+        if (typeof valor !== 'number') {
+            console.log('porfavor ingresa un numero')
+        } else if (valor < 18) {
+            console.log('para poder acceder se requiere ser mayor de edad')
+        } else {
+            this._age = valor
+            console.log(`bienvenido ${this.nombre}`)
+             
+        }
+    }
+}
+
+const user = new VerificarEdad('diogo')
+user.age = 18
+
+console.log(user.age)
+
+
+// validacion de tareas terminadas
+
+class VerificarTarea {
+
+    constructor(tema, estadoDeTarea = false) {
+        this._tema = tema
+        this._estadoDeTarea = estadoDeTarea
+    }
+
+    get estadoDeTarea() {
+        return this._estadoDeTarea
+    }
+
+    set estadoDeTarea(valor) {
+        if (typeof valor !== 'boolean') {
+            console.log('completado = true  |  incompleto = false')
+        } else {
+            this._estadoDeTarea = valor
+        }
+    }
+    tareaMensaje() {
+        return this._estadoDeTarea ? 'tarea completada':'tarea incompleta'
+    }
+}
+
+const matematica = new VerificarTarea('matematicas', false)
+
+
+console.log(matematica.tareaMensaje())
+
+
+// contrasena con validacion basica
+
+class Cuenta {
+  constructor(usuario) {
+    this._usuario = usuario;
+    this._password = null;
+  }
+
+  get password() {
+    return '🔒 Información protegida';
+  }
+
+  set password(pass) {
+    if (pass.length < 6) {
+      console.log('La contraseña debe tener al menos 6 caracteres');
+    } else {
+      this._password = pass;
+      console.log('✅ Contraseña establecida');
+    }
+  }
+}
+
+const cuenta = new Cuenta('DiogoDev');
+cuenta.password = 'abc';
+cuenta.password = 'secure1';
+console.log(cuenta.password); 
+
+
+
+
+/* 
+VALIDAR NOMBRE DE USUARIO
+.El nombre debe tener entre 3 y 12 caracteres
+.Solo puede contener letras y números (sin espacios ni símbolos)
+.El getter no muestra el nombre directamente, sino un mensaje genérico
+ */
+const regex = /^[a-zA-Z0-9]+$/
+
+class validarNombre {
+
+    constructor(name) {
+        this._name = name
+    }
+
+    get name() {
+        return 'nombre de usuario oculto'
+    }
+
+    set name(valor) {
+        if (!regex.test(valor)) {
+            console.log('Solo puede contener letras y números')
+        } else if (valor.length > 12 || valor.length < 3) {
+            console.log('El nombre debe tener entre 3 y 12 caracteres')
+        } else {
+            this._name = valor
+            console.log('nombre de usuario establecido')
+        }
+    }
+} 
+
+const user1 = new validarNombre()
+user1.name = 'diogoo'
+console.log(user1.name)
+

@@ -1,50 +1,54 @@
-// classes 
+
+// Clases
 
 class Person {
+
     constructor(name, age, alias) {
         this.name = name
         this.age = age
         this.alias = alias
     }
+
 }
 
-// sintaxis 
+// Sintaxis
 
-let person = new Person('diogo', 19, 'diogoox')
-let person2 = new Person('leo', 14, 'a')
+let person = new Person("Brais", 37, "MoureDev")
+let person2 = new Person("Brais", 37, "MoureDev")
 
 console.log(person)
 console.log(person2)
 
 console.log(typeof person)
 
-// valores por defecto
+// Valores por defecto
 
 class DefaultPerson {
-    constructor(name = 'sin nombre', age = 'sin edad', alias = 'sin alias') {
+
+    constructor(name = "Sin nombre", age = 0, alias = "Sin alias") {
         this.name = name
         this.age = age
         this.alias = alias
     }
-}  
 
-let persona3 = new DefaultPerson('diogo', )
+}
 
-console.log(persona3)
+let person3 = new DefaultPerson("Brais", 37)
 
+console.log(person3)
 
-// acceso a propiedades
+// Acceso a propiedades
 
-console.log(persona3.alias)
-console.log(persona3['alias'])
+console.log(person3.alias)
+console.log(person3["alias"])
 
-persona3.alias = 'diogoox'
+person3.alias = "MoureDev"
 
-console.log(persona3)
+console.log(person3.alias)
 
-// funciones en clases
+// Funciones en clases
 
-class Person2 {
+class PersonWithMethod {
 
     constructor(name, age, alias) {
         this.name = name
@@ -53,36 +57,42 @@ class Person2 {
     }
 
     walk() {
-        console.log('la persona camina')
-    } 
+        console.log("La persona camina.")
+    }
+
 }
 
-let person4 = new Person2('a', 'e', 'i')
+let person4 = new PersonWithMethod("Brais", 37, "MoureDev")
 person4.walk()
 
-// propiedades privadas
+// Propiedades privadas
 
 class PrivatePerson {
 
-    #banck
-    constructor(name, age, alias, banck) {
+    #bank
+
+    constructor(name, age, alias, bank) {
         this.name = name
         this.age = age
         this.alias = alias
-        this.banck = banck
+        this.#bank = bank
     }
 
     pay() {
-       this.#banck
+        this.#bank
     }
 
 }
 
-// console.log(person5.banck) no podemos acceder
-let person5 = new Person2('a', 'e', 'i', '11')
+let person5 = new PrivatePerson("Brais", 37, "MoureDev", "IBAN123456789")
 
+// No podemos acceder
+// console.log(person5.bank) 
+// person5.bank = "new IBAN123456789" // bank no es #bank
 
-// getters y setters
+console.log(person5)
+
+// Getters y Setters
 
 class GetSetPerson {
 
@@ -115,8 +125,12 @@ console.log(person6.name)
 
 person6.bank = "new IBAN123456789"
 
+/*
+Clase 38 - Herencia de clases
+Vídeo: https://youtu.be/1glVfFxj8a4?t=17999
+*/
 
-// herencia
+// Herencia
 
 class Animal {
 
@@ -125,19 +139,21 @@ class Animal {
     }
 
     sound() {
-        console.log('emite un sonido generico')
+        console.log("El animal emite un sonido genérico")
     }
+
 }
 
 class Dog extends Animal {
 
     sound() {
-        console.log('guau')
+        console.log("Guau!")
     }
 
     run() {
-        console.log('el perro corre')
+        console.log("El perro corre")
     }
+
 }
 
 class Fish extends Animal {
@@ -148,24 +164,26 @@ class Fish extends Animal {
     }
 
     swim() {
-        console.log('el pez nada')
+        console.log("El pez nada")
     }
+
 }
 
-let myDog = new Dog('moureDog')
+let myDog = new Dog("MoureDog")
 myDog.run()
 myDog.sound()
 
-let myFish = new Fish('mourefift', 10)
+let myFish = new Fish("MoureFish", 10)
 myFish.swim()
 myFish.sound()
 
-// metodos estaticos
+// Métodos estáticos
 
-class maht {
-static sun(a,b) {
-    return a + b
-}
+class MathOperations {
+
+    static sum(a, b) {
+        return a + b
+    }
 }
 
-console.log(maht.sun(5, 10))
+console.log(MathOperations.sum(5, 10))
