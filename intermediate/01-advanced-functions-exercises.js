@@ -104,14 +104,41 @@ callback([4, 4, 4, 4], mostrarResultado)
 
 // 7. Desarrolla una función parcial
 
+function sumParcial(a) {
+    return function (b, c) {
+        return (a + b + c)
+    }
+}
+
+let resultadoSumParcial = sumParcial(4)
+
+console.log(resultadoSumParcial(1, 2))
+
 // 8. Implementa un ejemplo que haga uso de Spread
+
+const array = [1, 2, 3]
+function sumarNumerosArray(a, b, c) {
+    return a + b + c
+}
+
+console.log(sumarNumerosArray(...array))
 
 // 9. Implementa un retorno implícito
 
+const resta = (a, b) => a - b 
+console.log(resta(3, 1))
+
 // 10. Haz uso del this léxico
 
+const persona = {
+    name: 'diogo',
+    job: function() {
+        console.log(`${this.name} trabaja en un super`)
+    }
+}
 
-
+console.log(persona.name)
+persona.job()
 
 
 
