@@ -58,6 +58,31 @@ ejecutarCallback(() => console.log('holaa'))
 /*Crea una función llamada procesarNumero que reciba un número y un callback.
 La función debe pasar el número al callback y el callback debe imprimir el doble del número*/
 
+function procesarNumero(n, callback) {
+    return callback(n)
+}
+
+let numeroDoble = procesarNumero(10, (n) => n * 2 )
+console.log(numeroDoble)
+
 
 /*Crea una función llamada filtrarArray que reciba un array y un callback.
 Debe devolver un nuevo array con los elementos que el callback devuelve true*/
+
+let arrayXd = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+function filtrarArray(array, callback) {
+    let newArrayXd = []
+    for (let elements of array) {
+        if (callback(elements)) {
+            newArrayXd.push(elements)
+        }
+    }
+    return newArrayXd
+}
+
+function numeroPar(elements) {
+    return elements % 2 === 0
+}
+
+console.log(filtrarArray(arrayXd, numeroPar))
