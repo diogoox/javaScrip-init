@@ -66,16 +66,108 @@ dog.makeSound()
 
 const flyMixin = {
     fly() {
-        console.log('esta volando')
+        console.log(`${this.name} esta volando`)
     }
 }
 
 class Bird extends Animal {}
 
-class dragon extends Animal {}
+class Dragon extends Animal {}
 
-Object.assign(Bird, flyMixin)
+Object.assign(Bird.prototype, flyMixin)
+Object.assign(Dragon.prototype, flyMixin)
 
 const bird = new Bird('moureBird')
-
 console.log(bird.name)
+bird.fly()
+
+const dragon = new Dragon('mouredragon')
+console.log(dragon.name)
+dragon.fly()
+
+// patron singleton
+
+class Session {
+
+    constructor(name) {
+        if (Session.instance) {
+            return Session.instance
+        }
+        this.name = name
+        Session.instance = this
+    }
+}
+
+const session1 = new Session('diogox')
+const session2 = new Session()
+console.log(session1.name)
+console.log(session2.name)
+console.log(session1 === session2)
+
+const session3 = new Session('mouredes') // no se puede cambiar...
+console.log(session3.name) // invalido
+
+// symbol
+
+const ID = Symbol('id')
+
+class User {
+    constructor(name) {
+        this.name = name
+        this[ID] = Math.random()
+    }
+
+    getId() {
+        return this[ID]
+    }
+}
+
+const user = new User ('diogox')
+console.log(user.name)
+console.log(user.ID)   // no se puede
+console.log(user[ID])
+console.log(user.getId())
+
+// instanceof
+
+class Car {}
+
+const car = new Car()
+console.log(car instanceof Car)
+
+// create
+
+const anotherCar = Object.create(Car.prototype)
+
+console.log(anotherCar instanceof Car)
+console.log(anotherCar)
+
+// proxy
+
+const proxy = {
+    get(target, property) {
+        console.log(`se accede a la propiedad ${property}`)
+        return target[property]
+
+    },
+    set(target, property, value) {
+        if (property === 'balance' && value < 0) {
+            throw new Error('el saldo no puede ser negativo')
+        }
+        target[property] = value
+    }
+}
+
+class BanckAccount {
+    constructor(balance) {
+        this.balance = balance
+    }
+}
+
+const account = new Proxy(new BanckAccount(100), proxy)
+console.log(account.balance)
+
+account.balance = 50
+console.log(account.balance)
+
+account.balance = -10
