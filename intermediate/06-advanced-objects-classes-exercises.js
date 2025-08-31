@@ -40,6 +40,31 @@ newAlumno.info()
 
 // 4. Haz uso de get y set en un objeto
 
+let person = {
+    name: 'diogo',
+    age: 27,
+    job: 'PROGRAMADOR',
+    info() {
+        console.log(`El usuario: ${this.name} trabaja como ${this.job} y tiene ${this.age} anos`)
+    }
+}
+
+Object.defineProperty(person, 'perfil' , {
+    get() {
+        console.log('accediendo al info del usuario...')
+        return person.info()
+    },
+    set(value) {
+        console.log('actualizando datos del usuario...')
+        const [name, age, job] = value
+        person.name = name
+        person.age = age
+        person.job = job
+    }
+})
+
+person.perfil
+    
 // 5. Utiliza la operación assign en un objeto
 
 // 6. Crea una clase abstracta
