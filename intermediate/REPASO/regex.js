@@ -59,4 +59,10 @@ function validarCorreo(correo) {
 
 console.log(validarCorreo())
 
-//
+// Validar un número de teléfono
+
+function validarNumeroTelefono(number) {
+    return /^\+5959\d{8}$/.test(number)
+}
+
+console.log(validarNumeroTelefono('+595912345678'))
