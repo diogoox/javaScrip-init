@@ -121,3 +121,24 @@ step1Promise()
 .then(console.log('todos los pasos con promesas completados'))
 
 
+// async/Await
+
+function  waint(ms) {
+    return new Promise(resolve =>  setTimeout(resolve, ms))
+}
+
+async function process() {
+    console.log('inicio de proceso')
+    
+    await waint(5000) 
+    console.log('proceso despues de 5 segundos')
+
+    await waint(1000) 
+    console.log('proceso despues de 1 segundos')
+    await waint(2000) 
+    console.log('proceso despues de 2 segundos')
+
+    console.log('fin de proceso')
+}
+
+process()
